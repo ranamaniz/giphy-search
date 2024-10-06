@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import "./index.css";
 import GiphySearch from "./pages/GiphySearch";
@@ -8,11 +12,15 @@ import reportWebVitals from "./reportWebVitals";
 
 const router = createBrowserRouter([
   {
-    path: "",
+    path: "/",
     element: <MainLayout />,
     children: [
       {
-        path: "",
+        path: "/",
+        element: <Navigate to="/giphy" replace />,
+      },
+      {
+        path: "/giphy",
         element: <GiphySearch />,
       },
     ],
