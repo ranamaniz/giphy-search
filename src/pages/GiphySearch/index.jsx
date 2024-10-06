@@ -6,8 +6,9 @@ import { useSearchParams } from "react-router-dom";
 const GiphySearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const search = searchParams.get("search");
+
   const handleOnSearch = (value) => {
-    const search = searchParams.get("search");
     if (search !== value) {
       setSearchParams((searchParams) => {
         searchParams.set("search", value);
@@ -18,7 +19,7 @@ const GiphySearch = () => {
 
   return (
     <section className="flex flex-col  items-center gap-4 relative">
-      <GiphySearchBar onSearch={handleOnSearch} />
+      <GiphySearchBar onSearch={handleOnSearch} value={search}/>
       <GiphyList />
     </section>
   );

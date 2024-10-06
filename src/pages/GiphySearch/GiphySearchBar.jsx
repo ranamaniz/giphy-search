@@ -3,8 +3,8 @@ import { Input } from "antd";
 import React, { useEffect, useState } from "react";
 import useDebounce from "../../hooks/useDebounce";
 
-const GiphySearchBar = ({ onSearch }) => {
-  const [searchString, setSearchString] = useState();
+const GiphySearchBar = ({ onSearch, value = "" }) => {
+  const [searchString, setSearchString] = useState(value);
 
   const debouncedSearchString = useDebounce(searchString);
 
